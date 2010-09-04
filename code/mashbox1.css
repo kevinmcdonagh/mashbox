@@ -1,0 +1,150 @@
+/*
+    RESET
+    PLAYER
+    ADDTRACK
+*/
+
+/* =RESET
+--------------------------------------------------------------------------- */
+* {
+    /* hooray */
+    margin:0;
+    padding:0;
+}
+
+ul {
+    list-style:none;
+}
+
+body {
+    font-family:'Molengo', Arial, Verdana, sans-serif;
+    background:#ededed;
+    font-size:69.75%;
+}
+
+section {
+    display:block;
+}
+
+#content {
+    width:400px;
+    margin:20px auto;
+}
+
+#list {
+    background:#fefefe;
+    height:400px;
+    width:400px;
+    -webkit-box-shadow:inset rgba(0,0,0,.3) 0 0 10px;
+    -moz-box-shadow:inset rgba(0,0,0,.3) 0 0 10px;
+    box-shadow:inset rgba(0,0,0,.3) 0 0 10px;
+    -webkit-border-radius:15px;
+    -moz-border-radius:15px;
+    border-radius:15px;
+}
+
+h1 {
+    text-align:center;
+    font-size:4.5em;
+    font-family: 'Reenie Beanie', arial, serif;
+    font-style:italic;
+}
+
+
+
+/* =PLAYER
+--------------------------------------------------------------------------- */
+#player {
+    margin:20px 0 20px 0;
+}
+#player button {
+    background:none;
+    border:0;
+}
+
+#player button {
+    border-color: transparent transparent transparent #444;
+    border-style:solid;
+    border-width:24px 24px 24px 32px;
+    width:0;
+    height:0;
+    text-indent:-9999em;
+    margin:23px 0 0 35px;
+    cursor:pointer;
+}
+
+#player > span {
+    cursor:pointer;
+    display:inline-block;
+    background:white;
+    overflow:hidden;
+    height:90px;
+    width:90px;
+    -webkit-border-radius:90px;
+    -moz-border-radius:90px;
+    border-radius:90px;
+    -webkit-box-shadow: rgba(0,0,0,.3) 0 0 10px;
+    -moz-box-shadow: rgba(0,0,0,.3) 0 0 10px;
+    box-shadow: rgba(0,0,0,.3) 0 0 10px;
+}
+
+#player ul {
+    display:inline-block;
+    vertical-align:top;
+    position:relative;
+    width:280px;
+    margin:5px 0 0 20px;
+}
+
+#player li {
+    position:relative;
+    margin:0 0 10px 0;
+    font-size:1.2em;
+    width: 100%;
+}
+
+#player li span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display:block;
+    width:230px;
+    display:block;
+}
+
+#player li img {
+    position:absolute;
+    right:0;
+    top:0;
+}
+
+/* =ADDTRACK
+---------------------------------------------------------------------------- */
+#add-track button {
+    display:none;
+    border-color: transparent transparent transparent #444;
+    border-style:solid;
+    border-width:24px 24px 24px 32px;
+    width:0;
+    height:0;
+    text-indent:-9999em;
+    margin:23px 0 0 35px;
+    cursor:pointer;
+}
+
+#add-track > span {
+    cursor:pointer;
+    display:inline-block;
+    background:white;
+    overflow:hidden;
+    height:35px;
+    width:90px;
+    -webkit-border-radius:90px;
+    -moz-border-radius:90px;
+    border-radius:90px;
+    -webkit-box-shadow: rgba(0,0,0,.3) 0 0 3px;
+    -moz-box-shadow: rgba(0,0,0,.3) 0 0 3px;
+    box-shadow: rgba(0,0,0,.3) 0 0 3px;
+    margin:0 0 20px 0;
+}
+
