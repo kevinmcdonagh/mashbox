@@ -2,6 +2,7 @@
     RESET
     PLAYER
     ADDTRACK
+    TABLE
 */
 
 /* =RESET
@@ -20,6 +21,7 @@ body {
     font-family:'Molengo', Arial, Verdana, sans-serif;
     background:#ededed;
     font-size:69.75%;
+    color:#444;
 }
 
 section {
@@ -29,18 +31,6 @@ section {
 #content {
     width:400px;
     margin:20px auto;
-}
-
-#list {
-    background:#fefefe;
-    height:400px;
-    width:400px;
-    -webkit-box-shadow:inset rgba(0,0,0,.3) 0 0 10px;
-    -moz-box-shadow:inset rgba(0,0,0,.3) 0 0 10px;
-    box-shadow:inset rgba(0,0,0,.3) 0 0 10px;
-    -webkit-border-radius:15px;
-    -moz-border-radius:15px;
-    border-radius:15px;
 }
 
 h1 {
@@ -60,6 +50,9 @@ h1 {
 #player button {
     background:none;
     border:0;
+}
+#player > span:hover {
+    background:#ffffd3;
 }
 
 #player button {
@@ -88,7 +81,7 @@ h1 {
     box-shadow: rgba(0,0,0,.3) 0 0 10px;
 }
 
-#player ul {
+#player div {
     display:inline-block;
     vertical-align:top;
     position:relative;
@@ -98,38 +91,37 @@ h1 {
 
 #player li {
     position:relative;
-    margin:0 0 10px 0;
+    margin:0 0 5px 0;
     font-size:1.2em;
     width: 100%;
+    overflow:hidden;
 }
 
 #player li span {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    display:block;
     width:230px;
-    display:block;
+    float:left;
 }
 
 #player li img {
-    position:absolute;
-    right:0;
-    top:0;
+    float:left;
+    margin:3px 5px 0 0;
+}
+
+#player h2 {
+    margin:0 0 8px 0;
+}
+
+#player h2 img {
+    vertical-align:middle;
 }
 
 /* =ADDTRACK
 ---------------------------------------------------------------------------- */
-#add-track button {
-    display:none;
-    border-color: transparent transparent transparent #444;
-    border-style:solid;
-    border-width:24px 24px 24px 32px;
-    width:0;
-    height:0;
-    text-indent:-9999em;
-    margin:23px 0 0 35px;
-    cursor:pointer;
+#add-track:hover span {
+    background:#ffffd3;
 }
 
 #add-track > span {
@@ -138,7 +130,7 @@ h1 {
     background:white;
     overflow:hidden;
     height:35px;
-    width:90px;
+    width:390px;
     -webkit-border-radius:90px;
     -moz-border-radius:90px;
     border-radius:90px;
@@ -146,5 +138,92 @@ h1 {
     -moz-box-shadow: rgba(0,0,0,.3) 0 0 3px;
     box-shadow: rgba(0,0,0,.3) 0 0 3px;
     margin:0 0 20px 0;
+    padding:0 0 0 10px;
 }
+
+#add-track > span * {
+    display:inline-block;
+    vertical-align:bottom;
+}
+
+#add-track b {
+    font-weight:bold;
+    font-size:4em;
+    line-height:.6em;
+    padding:0 10px 0 0;
+}
+
+#add-track span span {
+    font-size:1.3em;
+}
+
+
+/* =TABLE
+---------------------------------------------------------------------------- */
+#list {
+    background:#fefefe;
+    width:400px;
+    -webkit-border-radius:15px;
+    -moz-border-radius:15px;
+    -webkit-box-shadow: rgba(0,0,0,.3) 0 0 3px;
+    -moz-box-shadow: rgba(0,0,0,.3) 0 0 3px;
+    box-shadow: rgba(0,0,0,.3) 0 0 3px;
+    border-radius:15px;
+}
+
+table {
+    padding:10px;
+    width:100%;
+    font-size:1.2em;
+}
+
+table tr {
+    cursor:pointer;
+}
+
+table tr:hover td {
+    background:#ffffd3 !important;
+}
+
+table th {
+    text-align:left;
+    width:50%;
+    border-bottom:1px solid black;
+}
+
+table td {
+    padding:5px;
+}
+
+table b {
+    display:block;
+    text-align:center;
+}
+
+table span {
+    display:block;
+    text-align:left;
+    padding:0 0 0 10px;
+}
+
+table span:last-child {
+    text-align:right;
+    padding:0  10px 0 0;
+}
+
+table tr:nth-child(2n) {
+    background:#eee;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 

@@ -13,16 +13,41 @@
         <h1>Mash Box</h1>
         <div id="player">
             <span><button>Play</button></span>
-            <ul>
-                <li><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span> <span>Title</span> <img src="http://dummyimage.com/32x32/000/fff&amp;text=cover"></li>
-                <li><span>Artist</span> <span>Title</span> <img src="http://dummyimage.com/32x32/000/fff&amp;text=cover"></li>
-            </ul>
+            <div>
+                <h2><img src="http://dummyimage.com/32x32/000/fff&amp;text=cover"> Nikka NAAN - Wavin' Ching</h2>
+                <ul>
+                    <li><img src="http://dummyimage.com/16x16/000/fff&amp;text=cover"> <span>Nikka Costa - Ching Ching Ching</span></li>
+                    <li><img src="http://dummyimage.com/16x16/000/fff&amp;text=cover"> <span>K'NAAN - Wavin' Flag</span></li>
+                </ul>
+            </div>
         </div>
         <div id="add-track">
-            <span>+ Add your track</span>
+            <!-- <span><b>+</b> <span>Add your track</span></span> -->
+            <span><b>+</b> <span>Choose a track to mix</span></span>
         </div>
         <div id="list">
-            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Mixed by</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span>Wu Tang</span> <b>+</b> <span>Fisher Band</span></td>
+                        <td><span>Kevin</span> <b>&amp;</b> <span>Yves</span></td>
+                    </tr>
+                    <tr>
+                        <td><span>Wu Tang</span> <b>+</b> <span>Fisher Band</span></td>
+                        <td><span>Kevin</span> <b>&amp;</b> <span>Yves</span></td>
+                    </tr>
+                    <tr>
+                        <td><span>Wu Tang</span> <b>+</b> <span>Fisher Band</span></td>
+                        <td><span>Kevin</span> <b>&amp;</b> <span>Yves</span></td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
     
