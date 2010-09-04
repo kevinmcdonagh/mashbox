@@ -31,28 +31,28 @@
 					<li><a class="genre-electro" href="#">Electro</a><li>												
 				</ul>				
 				<ul id="files-rap" class="hidden">
-					<li>Rap Track #1<li>
-					<li>Rap Track #2<li>
-					<li>Rap Track #3<li>
-					<li>Rap Track #4<li>												
+					<li><a class="rap1" href="#">Rap Track #1<li>
+					<li><a class="rap2" href="#">Rap Track #2<li>
+					<li><a class="rap3" href="#">Rap Track #3<li>
+					<li><a class="rap4" href="#">Rap Track #4<li>												
 				</ul>				
 				<ul id="files-rock" class="hidden">
-					<li>Rock Track #1<li>
-					<li>Rock Track #2<li>
-					<li>Rock Track #3<li>
-					<li>Rock Track #4<li>												
+					<li><a class="rock1" href="#">Rock Track #1<li>
+					<li><a class="rock2" href="#">Rock Track #2<li>
+					<li><a class="rock3" href="#">Rock Track #3<li>
+					<li><a class="rock4" href="#">Rock Track #4<li>												
 				</ul>
 				<ul id="files-instrumental" class="hidden">
-					<li>Instrumental Track #1<li>
-					<li>Instrumental Track #2<li>
-					<li>Instrumental Track #3<li>
-					<li>Instrumental Track #4<li>												
+					<li><a class="instrumental1" href="#">Instrumental Track #1<li>
+					<li><a class="instrumental2" href="#">Instrumental Track #2<li>
+					<li><a class="instrumental3" href="#">Instrumental Track #3<li>
+					<li><a class="instrumental4" href="#">Instrumental Track #4<li>												
 				</ul>
 				<ul id="files-electro" class="hidden">
-					<li>Electro Track #1<li>
-					<li>Electro Track #2<li>
-					<li>Electro Track #3<li>
-					<li>Electro Track #4<li>												
+					<li><a class="electro1" href="#">Electro Track #1<li>
+					<li><a class="electro2" href="#">Electro Track #2<li>
+					<li><a class="electro3" href="#">Electro Track #3<li>
+					<li><a class="electro4" href="#">Electro Track #4<li>												
 				</ul>
 				<a id="hide" href="#"></a>
 			</div>
