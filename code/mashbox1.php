@@ -6,9 +6,18 @@
     <link rel="stylesheet" href="mashbox1.css" type="text/css">
     <link href='http://fonts.googleapis.com/css?family=Molengo' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Reenie+Beanie' rel='stylesheet' type='text/css'>
+	<script type="text/javascript" src="scripts/jquery-1.4.2.min.js"></script>
+	<script type="text/javascript" src="scripts/jquery-ui-1.8.4.custom.min.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			$("#add-track").accordion({
+				collapsible: true, active: false, 
+			});
+		});
+	</script>
 </head>
 <body>
-    
+		
     <div id="content">
         <h1>Mash Box</h1>
         <div id="player">
@@ -22,8 +31,10 @@
             </div>
         </div>
         <div id="add-track">
-            <!-- <span><b>+</b> <span>Add your track</span></span> -->
-            <span><b>+</b> <span>Choose a track to mix</span></span>
+            <span id="files"><a href="#"><b>+</b> <span>Add your own mix to the mash!</span></a></span>
+			<div>
+				<p>Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.</p>
+			</div>
         </div>
         <div id="list">
             <table>
