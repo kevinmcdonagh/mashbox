@@ -3,6 +3,7 @@
     PLAYER
     ADDTRACK
     TABLE
+	FILELIST
 */
 
 /* =RESET
@@ -277,7 +278,11 @@ table tr:nth-child(2n) {
     background:#eee;
 }
 
-
+/* =FILELIST
+---------------------------------------------------------------------------- */
+.hidden {
+	display:none;
+}
 
 
 
