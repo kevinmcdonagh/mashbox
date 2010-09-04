@@ -51,11 +51,15 @@ h1 {
     background:none;
     border:0;
 }
-#player > span:hover {
+
+#player > div:first-child {
+    margin: 0 10px 0 0;
+}
+#player > div:first-child:hover {
     background:#ffffd3;
 }
 
-#player button {
+#player > div:first-child a {
     border-color: transparent transparent transparent #444;
     border-style:solid;
     border-width:24px 24px 24px 32px;
@@ -66,7 +70,7 @@ h1 {
     cursor:pointer;
 }
 
-#player > span {
+#player > div:first-child {
     cursor:pointer;
     display:inline-block;
     background:white;
@@ -85,8 +89,6 @@ h1 {
     display:inline-block;
     vertical-align:top;
     position:relative;
-    width:280px;
-    margin:5px 0 0 20px;
 }
 
 #player li {
@@ -117,6 +119,66 @@ h1 {
 #player h2 img {
     vertical-align:middle;
 }
+
+.sc-player .sc-artwork-list{
+  display: none;
+}
+
+
+/* controls */
+
+
+.sc-player .sc-controls a{
+  display: block;
+}
+
+
+.sc-player .sc-controls a.sc-pause,
+.sc-player.playing .sc-controls a.sc-play,
+.sc-player ol.sc-trackslist,
+.sc-player .sc-info,
+.sc-player .sc-info-toggle,
+.sc-player .hidden,
+.sc-player .sc-scrubber {
+  display: none !important;
+}
+
+.sc-player.playing .sc-controls a.sc-pause {
+    display:block;
+}
+
+.sc-player .sc-controls a {
+  color: transparent;
+/*  background: url('../img/play.png');*/
+}
+
+.sc-player .sc-controls:hover .sc-play {
+/*  background: url('../img/play-hover.png');*/
+    border-color:transparent transparent transparent #444 !important;
+}
+
+.sc-player .sc-controls a.sc-pause {
+/*  background: url('../img/play.png');*/
+    border-width:32px 32px 32px 32px !important;
+    border-color:red;
+}
+
+.sc-player .sc-controls a.sc-pause:hover{
+/*  background: url('../img/play-hover.png');*/
+}
+
+.sc-player.playing .sc-controls a.sc-pause{
+/*  background: url('../img/pause.png');*/
+    display:block !important;
+    border-color: #444 !important;
+    margin:28px 0 0 28px !important;
+    border-width:17px !important;
+}
+
+.sc-player.playing .sc-controls a.sc-pause:hover{
+/*  background: url('../img/pause-hover.png');*/
+} 
+
 
 /* =ADDTRACK
 ---------------------------------------------------------------------------- */
