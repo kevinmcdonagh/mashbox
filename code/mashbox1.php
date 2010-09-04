@@ -12,9 +12,9 @@
     <div id="content">
         <h1>Mash Box</h1>
         <div id="player">
-            <div><a href="http://soundcloud.com/matas/hobnotropic" class="sc-player">My new dub track</a></div>
+            <div><a href="http://soundcloud.com/matas/hobnotropic" class="sc-player">Play</a></div>
             <div>
-                <h2><img src="http://dummyimage.com/32x32/000/fff&amp;text=cover"> Nikka NAAN - Wavin' Ching</h2>
+                <h2><img src="http://dummyimage.com/32x32/000/fff&amp;text=cover"></h2>
                 <ul>
                     <li><img src="http://dummyimage.com/16x16/000/fff&amp;text=cover"> <span>Nikka Costa - Ching Ching Ching</span></li>
                     <li><img src="http://dummyimage.com/16x16/000/fff&amp;text=cover"> <span>K'NAAN - Wavin' Flag</span></li>
@@ -53,6 +53,6 @@
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
     <script type="text/javascript" src="js/soundcloud.player.api.js"></script>
     <script type="text/javascript" src="js/sc-player.js"></script>
-
+    <script type="text/javascript" src="js/mashbox1.js"></script>
 </body>
 </html>
