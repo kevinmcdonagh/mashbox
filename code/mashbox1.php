@@ -3,25 +3,16 @@
 <head>
     <meta charset="utf-8">
     <title>Mash Box</title>
-    <link rel="stylesheet" href="mashbox1.css" type="text/css">
+    <link rel="stylesheet" href="css/mashbox1.css" type="text/css">
     <link href='http://fonts.googleapis.com/css?family=Molengo' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Reenie+Beanie' rel='stylesheet' type='text/css'>
-	<script type="text/javascript" src="scripts/jquery-1.4.2.min.js"></script>
-	<script type="text/javascript" src="scripts/jquery-ui-1.8.4.custom.min.js"></script>
-	<script type="text/javascript">
-		$(function() {
-			$("#add-track").accordion({
-				collapsible: true, active: false, 
-			});
-		});
-	</script>
+    <link rel="stylesheet" href="css/sc-player-mashbox.css" type="text/css" />
 </head>
 <body>
-		
     <div id="content">
         <h1>Mash Box</h1>
         <div id="player">
-            <span><button>Play</button></span>
+            <div><a href="http://soundcloud.com/matas/hobnotropic" class="sc-player">My new dub track</a></div>
             <div>
                 <h2><img src="http://dummyimage.com/32x32/000/fff&amp;text=cover"> Nikka NAAN - Wavin' Ching</h2>
                 <ul>
@@ -61,7 +52,17 @@
             </table>
         </div>
     </div>
-    
-    <!-- hello -->
 </body>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+<script type="text/javascript" src="js/soundcloud.player.api.js"></script>
+<script type="text/javascript" src="js/sc-player.js"></script>
+<script type="text/javascript" src="scripts/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="scripts/jquery-ui-1.8.4.custom.min.js"></script>
+<script type="text/javascript">
+	$(function() {
+		$("#add-track").accordion({
+			collapsible: true, active: false
+		});
+	});
+</script>
 </html>
