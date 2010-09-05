@@ -53,7 +53,7 @@
           // let's enable the html5 audio on selected mobile devices first, unlikely to support Flash
           // the desktop browsers are still better with Flash, e.g. see the Safari 10.6 bug
           // comment the following line out, if you want to force the html5 mode
-          state = state &&  (/iPad|iphone|mobile|pre\//i).test(navigator.userAgent);
+          // state = state &&  (/iPad|iphone|mobile|pre\//i).test(navigator.userAgent);
         }catch(e){
           // there's no audio support here sadly
         }
@@ -262,7 +262,7 @@
         // load first tracks
         loadUrl(links[index]);
       },
-      artworkImage = function(track, usePlaceholder) {
+      /*artworkImage = function(track, usePlaceholder) {
         if(usePlaceholder){
           return '<div class="sc-loading-artwork">Loading Artwork</div>';
         }else if (track.artwork_url) {
@@ -270,17 +270,15 @@
         }else{
           return '<div class="sc-no-artwork">No Artwork</div>';
         }
-      },
+      },*/
       updateTrackInfo = function($player, track) {
         // update the current track info in the player
         // log('updateTrackInfo', track);
         $('.sc-info', $player).each(function(index) {
-          $('h3', this).html('<a href="' + track.permalink_url +'">' + track.title + '</a>');
-          $('h4', this).html('by <a href="' + track.user.permalink_url +'">' + track.user.username + '</a>');
-          $('p', this).html(track.description || 'no Description');
+          $(this).html('<a href="' + track.permalink_url +'" target="_blank">' + track.title + '</a> by <a href="' + track.user.permalink_url +'" target="_blank">' + track.user.username + '</a> ' + track.playback_count + ' plays ' + timecode(track.duration));
         });
         // update the artwork
-        $('.sc-artwork-list li', $player).each(function(index) {
+        /*$('.sc-artwork-list li', $player).each(function(index) {
           var $item = $(this),
               itemTrack = $item.data('sc-track');
       
@@ -297,7 +295,7 @@
             // reset other artworks
             $item.removeClass('active');
           }
-        });
+        });*/
         // cache the references to most updated DOM nodes in the progress bar
         updates = {
           $buffer: $('.sc-buffer', $player), 
@@ -307,7 +305,13 @@
         // update the track duration in the progress bar
         $('.sc-duration', $player).html(timecode(track.duration));
         // put the waveform into the progress bar
-        $('.sc-waveform-container', $player).html('<img src="' + track.waveform_url +'" />');
+				if($.browser.webkit){
+					$('.sc-waveform-container', $player).css({'-webkit-mask-box-image' : 'url(' + track.waveform_url + ') 75 stretch', 'background-color' : '#0066CC'});
+				}else{
+        	$('.sc-waveform-container', $player).html('<img src="' + track.waveform_url +'" />');
+				}
+				
+				$('.sc-logo', $player).html('<a href="' + track.permalink_url + '" target="_blank"><img src="images/logo.png" border="0"></a>')
     
         $player.trigger('onPlayerTrackSwitch.scPlayer', [track]);
       },
@@ -412,29 +416,31 @@
   // Generate custom skinnable HTML/CSS/JavaScript based SoundCloud players from links to SoundCloud resources
   $.scPlayer = function(options, node) {
     var opts = $.extend({}, $.scPlayer.defaults, options),
+
         playerId = players.length,
         $source = node && $(node),
         links = opts.links || $.map($('a', $source).add($source.filter('a')), function(val) { return {url: val.href, title: val.innerHTML}; }),
+
         $player = $('<div class="sc-player loading"></div>').data('sc-player', {id: playerId}),
-        $artworks = $('<ol class="sc-artwork-list"></ol>').appendTo($player),
-        $info = $('<div class="sc-info"><h3></h3><h4></h4><p></p><a href="#" class="sc-info-close">X</a></div>').appendTo($player),
-        $controls = $('<div class="sc-controls"></div>').appendTo($player),
-        $list = $('<ol class="sc-trackslist"></ol>').appendTo($player);
+				$slide = $('<div class="sc-slide"></div>').appendTo($player),
+				$container = $('<div class="sc-container"></div>').appendTo($player),
+				$content = $('<div class="sc-content"></div>').appendTo($container),
+        $info = $('<div class="sc-info"></div>').appendTo($content),
+				$timespan = $('<div class="sc-time-span hidden"></div>').appendTo($content),
+        $controls = $('<div class="sc-controls"></div>').appendTo($container),
+				$logo = $('<div class="sc-logo hidden"></div>').appendTo($container),
+				$clear = $('<div style="clear:both;"></div>').appendTo($player),
+				$list = $('<ol class="sc-trackslist"></ol>').appendTo($player);
         
         // enable autoplay if set in the options
         autoPlay = opts.autoPlay;
-        
-        // adding controls to the player
-        $player
-          .find('.sc-controls')
-            .append('<a href="#play" class="sc-play">Play</a> <a href="#pause" class="sc-pause hidden">Pause</a>')
-          .end()
-          .append('<a href="#info" class="sc-info-toggle">Info</a>')
-          .append('<div class="sc-scrubber"></div>')
-            .find('.sc-scrubber')
-              .append('<div class="sc-volume-slider"><span class="sc-volume-status" style="width:' + soundVolume +'%"></span></div>')
-              .append('<div class="sc-time-span"><div class="sc-waveform-container"></div><div class="sc-buffer"></div><div class="sc-played"></div></div>')
-              .append('<div class="sc-time-indicators"><span class="sc-position"></span> | <span class="sc-duration"></span></div>');
+
+				$player
+					.find('.sc-controls')
+            .append('<a href="#play" class="sc-play"></a><a href="#pause" class="sc-pause"></a>').end()
+					.find('.sc-time-span')
+            .append('<div class="sc-waveform-container"></div><div class="sc-buffer"></div><div class="sc-played"></div>')
+						.append('<div class="sc-time-indicators"><span class="sc-position"></span> | <span class="sc-duration"></span></div>');
         
         // load and parse the track data from SoundCloud API
         loadTracksData($player, links, opts.apiKey);
@@ -447,11 +453,11 @@
             // create an item in the playlist
             $('<li><a href="' + track.permalink_url +'">' + track.title + '</a><span class="sc-track-duration">' + timecode(track.duration) + '</span></li>').data('sc-track', {id:index}).toggleClass('active', active).appendTo($list);
             // create an item in the artwork list
-            $('<li></li>')
-              .append(artworkImage(track, index >= opts.loadArtworks))
-              .appendTo($artworks)
-              .toggleClass('active', active)
-              .data('sc-track', track);
+            //$('<li></li>')
+              //.append(artworkImage(track, index >= opts.loadArtworks))
+              //.appendTo($artworks)
+              //.toggleClass('active', active)
+              //.data('sc-track', track);
           });
           $player
             .removeClass('loading')
@@ -514,43 +520,51 @@
   
   // toggling play/pause
   $('a.sc-play, a.sc-pause').live('click', function(event) {
+	
     var $list = $(this).closest('.sc-player').find('ol.sc-trackslist');
     // simulate the click in the tracklist
     $list.find('li.active').click();
     return false;
-  });
-  
-  // displaying the info panel in the player
-  $('a.sc-info-toggle, a.sc-info-close').live('click', function(event) {
-    var $link = $(this);
-    $link.closest('.sc-player')
-      .find('.sc-info').toggleClass('active').end()
-      .find('a.sc-info-toggle').toggleClass('active');
-    return false;
+
   });
 
   // selecting tracks in the playlist
   $('.sc-trackslist li').live('click', function(event) {
+	
     var $track = $(this),
         $player = $track.closest('.sc-player'),
         trackId = $track.data('sc-track').id,
         play = $player.is(':not(.playing)') || $track.is(':not(.active)');
+
     if (play) {
+	
+			$('.sc-info', $player).addClass('hidden');
+			$('.sc-logo', $player).removeClass('hidden');
+			$('.sc-slide', $player).animate({ width: "100%" }, "slow", function(){$('.sc-time-span', $player).removeClass('hidden');} );
+	
       onPlay($player, trackId);
+
     }else{
+	
+			$('.sc-info', $player).removeClass('hidden');
+			$('.sc-time-span', $player).addClass('hidden');
+			$('.sc-logo', $player).addClass('hidden');
+			$('.sc-slide', $player).css({width: "18px"});
+	
       onPause($player);
+
     }
     $track.addClass('active').siblings('li').removeClass('active');
-    $('.artworks li', $player).each(function(index) {
-      $(this).toggleClass('active', index === trackId);
-    });
+    //$('.artworks li', $player).each(function(index) {
+    //  $(this).toggleClass('active', index === trackId);
+    //});
     return false;
   });
   
   var scrub = function(node, xPos) {
     var $scrubber = $(node).closest('.sc-time-span'),
         $buffer = $scrubber.find('.sc-buffer'),
-        $available = $scrubber.find('.sc-waveform-container img'),
+        $available = $scrubber.find('.sc-waveform-container'), // img'),
         $player = $scrubber.closest('.sc-player'),
         relative = Math.min($buffer.width(), (xPos  - $available.offset().left)) / $available.width();
     onSeek($player, relative);
@@ -562,7 +576,6 @@
       ev.preventDefault();
     }
   };
-  
   
   // seeking in the loaded track buffer
   $('.sc-time-span')
@@ -580,7 +593,7 @@
     });
   
   // changing volume in the player
-  var startVolumeTracking = function(node, startEvent) {
+  /*var startVolumeTracking = function(node, startEvent) {
     var $node = $(node),
         originX = $node.offset().left,
         originWidth = $node.width(),
@@ -608,7 +621,7 @@
   
   $(document).bind('scPlayer:onVolumeChange', function(event) {
     $('span.sc-volume-status').css({width: event.volume + '%'});
-  });
+  });*/
   // -------------------------------------------------------------------
 
   // the default Auto-Initialization

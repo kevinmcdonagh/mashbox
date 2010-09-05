@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+ 
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"> 
+<head> 
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/> 
+ 
+	<title>JS Mini Player</title> 
+	
+	<meta name="viewport" content="initial-scale=2.3, user-scalable=no" /> 
+	<meta name="viewport" content="width=320; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" /> 
+	
+	<style> 
+	
+	*{ margin: 0; padding: 0; }
+	
+	body{ padding: 20px; } p{ margin: 20px 0;}
+	
+	.sc-player{ 
+		font: 10px 'Lucida Grande', Helvetica, Arial, sans-serif;
+		height: 18px;
+		position: relative;
+		width: 100%;
+	}
+	
+	.sc-slide{
+		background-color: #0066CC;
+		-moz-border-radius: 100px; -webkit-border-radius: 100px;
+		height: 18px; width: 18px;
+		position: absolute;
+		top: 0; left: 0;
+	}
+	
+	a{ color: #0066CC; text-decoration: none; }
+	
+	.sc-container{ padding-left: 18px; padding-right: 36px; }
+	
+	.sc-content, .sc-controls, .sc-logo{ float: left; position: relative; }
+	
+	.sc-controls{ width: 18px; margin-left: -100%; right: 18px; }
+	
+	.sc-controls a{ height: 18px; width: 18px; }
+	
+	.sc-controls a{
+		background: url("images/controls.png") no-repeat;
+		color: transparent;
+		display: block;
+	}
+	
+	.sc-controls a.sc-pause{ background-position: -18px 0; display: none; }
+	
+	.sc-player.playing a.sc-play{ display: none; }
+	.sc-player.playing a.sc-pause{ display: block; }
+	
+	.sc-content{ width: 100%; margin-top: 2px; }
+	
+	.sc-info{ margin-left: 4px; overflow: hidden; }
+ 
+	.sc-time-span{ width: 100%; height: 14px; }
+	
+	.sc-buffer, .sc-played, .sc-waveform-container, .sc-waveform-container img{ height: 14px; }
+ 
+	.sc-waveform-container, .sc-waveform-container img, .sc-buffer, .sc-played{ position: absolute; top: 0; }
+	.sc-waveform-container, .sc-waveform-container img{ width: 100%;  }
+	.sc-waveform-container{ z-index: 800; }
+	.sc-played{ z-index: 799; }
+	.sc-buffer{ z-index: 1; }
+	
+	.sc-waveform-container{ /*background-color: #0066CC;*/ }
+	
+	.sc-time-span{ background: #0066CC url('images/black-transparency.png'); }
+ 
+	.sc-time-span .sc-buffer{ background-color: white; }
+ 
+	.sc-time-span .sc-played{ background: #0066CC url('images/white-transparency.png'); }
+	
+	.sc-logo{ margin-right: -36px; width: 36px; }
+	
+	.hidden{ display: none; }
+	
+	.sc-artwork-list, .sc-trackslist, .sc-info-toggle, .sc-volume-slider, .sc-time-indicators{ display: none; }
+	
+	.sc-player-engine-container{
+	  width: 1px;
+	  height: 1px;
+	  position: fixed;
+	  top: 2px;
+	  left: 2px;
+	}
+	
+	</style> 
+	
+</head> 
+ 
+<body> 
+	
+	<h1>JS Mini-Player</h1> 
+	
+	<p>I'm Flash, I don't work on iPhones :-(</p> 
+	
+	<p><object height="18" width="100%"> <param name="movie" value="http://player.soundcloud.com/player.swf?url=http://soundcloud.com/johnlegend/wake-up-everybody&amp;auto_play=false&amp;player_type=tiny&amp;font=Arial&amp;color=0066CC"></param> <param name="allowscriptaccess" value="always"></param> <param name="wmode" value="transparent"></param><embed wmode="transparent" allowscriptaccess="always" height="18" src="http://player.soundcloud.com/player.swf?url=http://soundcloud.com/johnlegend/wake-up-everybody&amp;auto_play=false&amp;player_type=tiny&amp;font=Arial&amp;color=0066CC" type="application/x-shockwave-flash" width="100%"></embed> </object></p> 
+	
+	<p>I'm JS, HTML5-ish, & CSS, iPhones love me! :-)</p> 
+	
+	<p><a href="http://soundcloud.com/johnlegend/wake-up-everybody" class="sc-player">Test</a></p>	
+	
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script> 
+  <script type="text/javascript" src="js/soundcloud.player.api.js"></script> 
+  <script type="text/javascript" src="js/sc-player.js"></script> 
+ 
+</body> 
+</html> 
