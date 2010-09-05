@@ -111,6 +111,10 @@
                 </tbody>
             </table>
         </div>
+        <div id="footer" style="width:100%;text-align:center;padding-top:250px;">
+        		<img src="sc.png" height="50"/>
+        		<img src="ec.png" height="50"/>
+        </div>
     </div>
 	<div id="dialog" title="Making a Mash!">
 		<ol class="txt_mash">
