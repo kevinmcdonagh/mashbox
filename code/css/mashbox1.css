@@ -267,7 +267,7 @@ button {
 #add-track #files {
     position:relative;
     z-index:5;
-    padding-bottom:2px;
+    padding-bottom:8px;
 }
 
 #add-track > div {
