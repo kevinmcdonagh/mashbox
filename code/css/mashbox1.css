@@ -25,7 +25,7 @@ ul {
 
 body {
     font-family:'Molengo', Arial, Verdana, sans-serif;
-    background:#ededed;
+    background:#FEF9F5;
     font-size:69.75%;
     color:#444;
 }
@@ -68,7 +68,22 @@ button {
     margin: 0 10px 0 0;
 }
 #player > div:first-child:hover {
-    background:#ffffd3;
+    background:#E84F60 -webkit-gradient(
+        linear,
+        left bottom,
+        left top,
+        color-stop(0.11, rgb(232,79,97)),
+        color-stop(0.74, rgb(255,120,138))
+    );
+    background:#E84F60 -moz-linear-gradient(
+        center bottom,
+        rgb(232,79,97) 11%,
+        rgb(255,120,138) 74%
+    );
+}
+
+#player > div:first-child:hover a {
+    border-color:transparent transparent transparent #000 !important;
 }
 
 #player > div:first-child a {
@@ -213,6 +228,18 @@ button {
     border-width:17px !important;
 }
 
+#player > div:first-child:hover .sc-player.playing .sc-controls a.sc-pause {
+    border-color:#000 !important;
+}
+
+.sc-player.playing .sc-controls a.sc-pause{
+/*  background: url('../img/pause.png');*/
+/*    display:block !important;
+    border-color: red !important;
+    margin:28px 0 0 28px !important;
+    border-width:17px !important;*/
+}
+
 .sc-player.playing .sc-controls a.sc-pause:hover{
 /*  background: url('../img/pause-hover.png');*/
 } 
@@ -249,8 +276,27 @@ button {
     font-size:1.2em;
 }
 
+
+/*
+FDB7BE
+F3A7B0
+*/
+
 #add-track #files:hover {
-    background:#ffffd3;
+    background: -webkit-gradient(
+        linear,
+        left bottom,
+        left top,
+        color-stop(0.11, #F3A7B0),
+        color-stop(0.74, #FDB7BE)
+    );
+    background: -moz-linear-gradient(
+        center bottom,
+        #F3A7B0 11%,
+        #FDB7BE 74%
+    );
+
+    color:#000;
 }
 
 #add-track > span {
@@ -300,7 +346,7 @@ button {
 }
 
 #add-track #genres li a:hover {
-    background:#ffffd3;
+    background:rgba(247,180,72,.5);
 }
 
 
@@ -328,7 +374,7 @@ table tr {
 }
 
 table tr:hover td {
-    background:#ffffd3 !important;
+    background:rgba(247,180,72,.5) !important;
 }
 
 table th {

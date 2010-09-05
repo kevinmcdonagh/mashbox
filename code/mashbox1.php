@@ -92,8 +92,6 @@
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
     <script type="text/javascript" src="js/soundcloud.player.api.js"></script>
     <script type="text/javascript" src="js/sc-player.js"></script>
-    <script type="text/javascript" src="scripts/jquery-1.4.2.min.js"></script>
-    <script type="text/javascript" src="scripts/jquery-ui-1.8.4.custom.min.js"></script>
     <script type="text/javascript" src="js/mashbox1.js"></script>
 </body>
 </html>

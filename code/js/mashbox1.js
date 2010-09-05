@@ -51,7 +51,10 @@ var lastFmGetCover = function(nb) {
     
 }
 
-
+console.log(soundcloud)
+soundcloud.addEventListener('onPlayerReady', function(){
+    alert('ok')
+});
 
 
 
