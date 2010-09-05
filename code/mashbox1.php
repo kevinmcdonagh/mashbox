@@ -90,25 +90,37 @@
             </table>
         </div>
     </div>
-	<div id="dialog" title="Making the Mash!">
-		<ol>
-			<li>Cover - Title - artist</li>
-			<li>+</li>			
-			<li>Cover - Title - artist!</li>
-			<li>=</li>
-			<li>Title - artist!</li>
+	<div id="dialog" title="Making a Mash!">
+		<ol class="txt_mash">
+			<li>
+				<div class="trackItem">
+					<img class="cover" src="img/cover_1.jpg" width="100px" height="100px"/>
+					<span class="details"><h3>Title</h3><p>artist</p></span>
+				</div>
+			</li>
+			<li class="plus">+</li>			
+			<li>
+				<div class="trackItem">
+					<img class="cover" src="img/cover_2.jpg" width="100px" height="100px"/>
+					<span class="details"><h3>Title</h3><p>artist</p></span>
+				</div>
+			</li>
+			<li><span class="equals">=</span><span class="result">Title - artist!</span></li>
 		</ol>
-		<p>Loading...</p>
+		<p class="loading">Loading...</p>
 	</div>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
     <script type="text/javascript" src="js/soundcloud.player.api.js"></script>
     <script type="text/javascript" src="js/sc-player.js"></script>
     <script type="text/javascript" src="js/mashbox1.js"></script>
+	<script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
+	<script type="text/javascript" src="js/jquery-ui-1.8.4.custom.min.js"></script>
 	<script type="text/javascript">
 	$(function() {
 		$("#dialog").dialog({ 
 			autoOpen: false,
-			height: 240,
+			height: 400,
+			width: 440,
 			modal: true });
 
 		$(".chosen").click(function(){
