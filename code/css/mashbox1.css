@@ -14,6 +14,11 @@
     padding:0;
 }
 
+a {
+    text-decoration:none;
+    color:inherit;
+}
+
 ul {
     list-style:none;
 }
@@ -40,6 +45,12 @@ h1 {
     font-family: 'Reenie Beanie', arial, serif;
     font-style:italic;
 }
+
+button {
+    background:none;
+    border:0;
+}
+
 
 
 
@@ -125,9 +136,7 @@ h1 {
   display: none;
 }
 
-
 /* controls */
-
 
 .sc-player .sc-controls a{
   display: block;
@@ -180,17 +189,46 @@ h1 {
 /*  background: url('../img/pause-hover.png');*/
 } 
 
+.sc-player-engine-container {
+    visibility:hidden;
+    position:absolute;
+    left:-9999em;
+    top:0;
+}
+
 
 /* =ADDTRACK
 ---------------------------------------------------------------------------- */
-#add-track:hover span {
+#add-track {
+    margin:0 0 20px 0;
+}
+
+#add-track #files {
+    position:relative;
+    z-index:5;
+}
+
+#add-track > div {
+    background:#fff;
+    -webkit-border-radius:0 0 15px 15px;
+    -moz-border-radius:0 0 15px 15px;
+    border-radius:0 0 15px 15px;
+    -webkit-box-shadow: rgba(0,0,0,.3) 0 0 3px;
+    -moz-box-shadow: rgba(0,0,0,.3) 0 0 3px;
+    box-shadow: rgba(0,0,0,.3) 0 0 3px;
+    margin:-20px 0 0 0;
+    padding:30px 10px 10px 10px;
+    font-size:1.2em;
+}
+
+#add-track #files:hover {
     background:#ffffd3;
 }
 
 #add-track > span {
     cursor:pointer;
     display:inline-block;
-    background:white;
+    background:#fff;
     overflow:hidden;
     height:35px;
     width:390px;
@@ -200,7 +238,6 @@ h1 {
     -webkit-box-shadow: rgba(0,0,0,.3) 0 0 3px;
     -moz-box-shadow: rgba(0,0,0,.3) 0 0 3px;
     box-shadow: rgba(0,0,0,.3) 0 0 3px;
-    margin:0 0 20px 0;
     padding:0 0 0 10px;
 }
 
@@ -218,6 +255,24 @@ h1 {
 
 #add-track span span {
     font-size:1.3em;
+}
+
+#add-track h3 {
+    font-size:1.5em;
+    font-weight:normal;
+    padding:5px;
+}
+
+#add-track #genres li a {
+    background:#eee;
+    font-size:1.2em;
+    padding:5px;
+    border-top:1px solid #fff;
+    display:block;
+}
+
+#add-track #genres li a:hover {
+    background:#ffffd3;
 }
 
 
@@ -280,10 +335,39 @@ table tr:nth-child(2n) {
 
 /* =FILELIST
 ---------------------------------------------------------------------------- */
-.hidden {
-	display:none;
+#add-track > div {
+    display:none;
 }
 
+.hidden {
+    display:none;
+}
+
+#choose-genre {
+    overflow:hidden;
+}
+
+#choose-genre span {
+    background:#fff;
+    border-color: transparent #444 transparent transparent;
+    border-style:solid;
+    border-width:10px 8px 9px 8px;
+    display:block;
+    width:0;
+    height:0;
+    float:left;
+    margin:0 0 0 -13px;
+}
+
+#choose-genre button {
+    float:left;
+    background:#444;
+    color:#fff;
+    font-size:.7em;
+    width:367px;
+    text-align:left;
+    cursor:pointer;
+}
 
 
 

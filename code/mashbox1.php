@@ -6,7 +6,6 @@
     <link rel="stylesheet" href="css/mashbox1.css" type="text/css">
     <link href='http://fonts.googleapis.com/css?family=Molengo' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Reenie+Beanie' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="css/sc-player-mashbox.css" type="text/css" />
 </head>
 <body>
     <div id="content">
@@ -22,40 +21,42 @@
             </div>
         </div>
         <div id="add-track">
-            <span id="files"><a href="#"><b>+</b> <span>Add your own mix to the mash!</span></a></span>
-			<div>
-				<ul id="genres">
-					<li><a class="genre-rock" href="#">Rock</a><li>
-					<li><a class="genre-rap" href="#">Rap</a><li>
-					<li><a class="genre-instrumental" href="#">Instrumental</a><li>
-					<li><a class="genre-electro" href="#">Electro</a><li>												
-				</ul>				
-				<ul id="files-rap" class="hidden">
-					<li><a class="rap1" href="#">Rap Track #1<li>
-					<li><a class="rap2" href="#">Rap Track #2<li>
-					<li><a class="rap3" href="#">Rap Track #3<li>
-					<li><a class="rap4" href="#">Rap Track #4<li>												
-				</ul>				
-				<ul id="files-rock" class="hidden">
-					<li><a class="rock1" href="#">Rock Track #1<li>
-					<li><a class="rock2" href="#">Rock Track #2<li>
-					<li><a class="rock3" href="#">Rock Track #3<li>
-					<li><a class="rock4" href="#">Rock Track #4<li>												
-				</ul>
-				<ul id="files-instrumental" class="hidden">
-					<li><a class="instrumental1" href="#">Instrumental Track #1<li>
-					<li><a class="instrumental2" href="#">Instrumental Track #2<li>
-					<li><a class="instrumental3" href="#">Instrumental Track #3<li>
-					<li><a class="instrumental4" href="#">Instrumental Track #4<li>												
-				</ul>
-				<ul id="files-electro" class="hidden">
-					<li><a class="electro1" href="#">Electro Track #1<li>
-					<li><a class="electro2" href="#">Electro Track #2<li>
-					<li><a class="electro3" href="#">Electro Track #3<li>
-					<li><a class="electro4" href="#">Electro Track #4<li>												
-				</ul>
-				<a id="hide" href="#"></a>
-			</div>
+            <span id="files"><a href="#"><b>+</b> <span>Add your own track to the mash!</span></a></span>
+            <div>
+                <h3 id="choose-genre">
+                    Choose a genre !
+                </h3>
+                <ul id="genres">
+                    <li><a class="genre-rock" href="#">Rock</a></li>
+                    <li><a class="genre-rap" href="#">Rap</a></li>
+                    <li><a class="genre-instrumental" href="#">Instrumental</a></li>
+                    <li><a class="genre-electro" href="#">Electro</a></li>
+                </ul>
+                <ul id="files-rap" class="genre hidden">
+                    <li><a class="rap1" href="#">Rap Track #1</a></li>
+                    <li><a class="rap2" href="#">Rap Track #2</a></li>
+                    <li><a class="rap3" href="#">Rap Track #3</a></li>
+                    <li><a class="rap4" href="#">Rap Track #4</a></li>
+                </ul>
+                <ul id="files-rock" class="genre hidden">
+                    <li><a class="rock1" href="#">Rock Track #1</a></li>
+                    <li><a class="rock2" href="#">Rock Track #2</a></li>
+                    <li><a class="rock3" href="#">Rock Track #3</a></li>
+                    <li><a class="rock4" href="#">Rock Track #4</a></li>
+                </ul>
+                <ul id="files-instrumental" class="genre hidden">
+                    <li><a class="instrumental1" href="#">Instrumental Track #1</a></li>
+                    <li><a class="instrumental2" href="#">Instrumental Track #2</a></li>
+                    <li><a class="instrumental3" href="#">Instrumental Track #3</a></li>
+                    <li><a class="instrumental4" href="#">Instrumental Track #4</a></li>
+                </ul>
+                <ul id="files-electro" class="genre hidden">
+                    <li><a class="electro1" href="#">Electro Track #1</a></li>
+                    <li><a class="electro2" href="#">Electro Track #2</a></li>
+                    <li><a class="electro3" href="#">Electro Track #3</a></li>
+                    <li><a class="electro4" href="#">Electro Track #4</a></li>
+                </ul>
+            </div>
         </div>
         <div id="list">
             <table>
@@ -87,28 +88,6 @@
     <script type="text/javascript" src="js/sc-player.js"></script>
     <script type="text/javascript" src="scripts/jquery-1.4.2.min.js"></script>
     <script type="text/javascript" src="scripts/jquery-ui-1.8.4.custom.min.js"></script>
-    <script type="text/javascript">
-    	$(function() {
-    		$("#add-track").accordion({
-    			collapsible: true, active: false
-    		});
-    		$('a.genre-rock').click(function() {
-    		  $('#files-rock').toggleClass('hidden');
-    		  $('#genres').toggleClass('hidden');
-    		});
-    		$('a.genre-rap').click(function() {
-    		  $('#files-rap').toggleClass('hidden');
-    		  $('#genres').toggleClass('hidden');
-    		});
-    		$('a.genre-electro').click(function() {
-    		  $('#files-electro').toggleClass('hidden');
-    		  $('#genres').toggleClass('hidden');
-    		});
-    		$('a.genre-instrumental').click(function() {
-    		  $('#files-instrumental').toggleClass('hidden');
-    		  $('#genres').toggleClass('hidden');
-    		});
-    	});
-    </script>
+    <script type="text/javascript" src="js/mashbox1.js"></script>
 </body>
 </html>
