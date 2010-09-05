@@ -79,7 +79,7 @@
 						$dbh = new PDO('sqlite:mashbox2.sqlite');
 						foreach($dbh->query('SELECT * FROM tracks') as $row){
 							echo ("<tr>\n");
-							echo ("<td><span>" . $row['title'] . "</span> <b>+</b> <span>" . $row['artist'] . "</span></td>\n");
+							echo ("<td><span><strong>" . $row['title'] . "</strong> by " . $row['artist'] . "</span></td>\n");
 							echo ("<td><span>". $row['addedby1'] . "</span> <b>&amp;</b> <span>". $row['addedby2'] . "</span></td>\n");		                        
 							echo ("<tr>\n");
 					  	}
