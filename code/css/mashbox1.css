@@ -453,6 +453,7 @@ table tr:nth-child(2n) {
     cursor:pointer;
 }
 
+<<<<<<< HEAD
 #choose-genre.active:hover span {
     border-color: transparent #F3A7B0 transparent transparent !important;
 }
@@ -463,6 +464,44 @@ table tr:nth-child(2n) {
 
 
 /* =DIALOG
+--------------------------------------------------------------------------- */
+ol{
+	list-style: none;
+}
+.cover {
+	float:left;
+}
+ol.txt_mash	 li{
+	clear:both;	
+}
+
+.details{
+	display:block;
+	margin:0 0 0 108px;	
+}
+
+.details h3 {
+	font-size:2em;
+}
+
+.details p {
+	font-size:1.7em;
+}
+
+.plus {
+	text-align:center;
+	font-size:3em;
+	font-style:bold;
+}
+
+.equals {
+	text-align:center;
+	font-size:3em;
+	font-style:bold;
+}
+
+
+/* =TRACK MASH LOADING DIALOG
 --------------------------------------------------------------------------- */
 ol{
 	list-style: none;
