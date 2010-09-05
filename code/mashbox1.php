@@ -92,34 +92,36 @@
     </div>
 	<div id="dialog" title="Making a Mash!">
 		<ol class="txt_mash">
-			<li>
+			<li class="cover-1">
 				<div class="trackItem">
-					<img class="cover" src="img/cover_1.jpg" width="100px" height="100px"/>
+					<img class="cover" src="img/cover_1.jpg">
 					<span class="details"><h3>Title</h3><p>artist</p></span>
 				</div>
 			</li>
-			<li class="plus">+</li>			
-			<li>
+			<li class="cover-2">
 				<div class="trackItem">
-					<img class="cover" src="img/cover_2.jpg" width="100px" height="100px"/>
 					<span class="details"><h3>Title</h3><p>artist</p></span>
+					<img class="cover" src="img/cover_2.jpg">
 				</div>
 			</li>
-			<li><span class="plus">= Title - artist!</span></li>
 		</ol>
-		<p class="loading">Loading...</p>
+		<div id="equals-artist">
+		    <label for="name-it">Name it :</label>
+	        <input id="name-it" name="name-it" value="" type="text">
+	        <button>Ok</button>
+		</div>
+		<p class="loading"><img src="img/ajax-loader.gif" alt="Loading"></p>
 	</div>
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+	<script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
     <script type="text/javascript" src="js/soundcloud.player.api.js"></script>
     <script type="text/javascript" src="js/sc-player.js"></script>
     <script type="text/javascript" src="js/mashbox1.js"></script>
-	<script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
 	<script type="text/javascript" src="js/jquery-ui-1.8.4.custom.min.js"></script>
 	<script type="text/javascript">
 	$(function() {
 		$("#dialog").dialog({ 
 			autoOpen: false,
-			height: 400,
+			height: 200,
 			width: 440,
 			modal: true });
 

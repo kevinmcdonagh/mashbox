@@ -7,8 +7,8 @@
 	DIALOG
 	
 	COLORS
-        FDB7BE
-        F3A7B0
+        E84F60
+        F7B448
 	
 */
 
@@ -453,7 +453,6 @@ table tr:nth-child(2n) {
     cursor:pointer;
 }
 
-<<<<<<< HEAD
 #choose-genre.active:hover span {
     border-color: transparent #F3A7B0 transparent transparent !important;
 }
@@ -467,17 +466,34 @@ table tr:nth-child(2n) {
 --------------------------------------------------------------------------- */
 ol{
 	list-style: none;
+	overflow:hidden;
+	margin:20px 0;
 }
 .cover {
 	float:left;
+	width:80px;
+	height:80px;
 }
-ol.txt_mash	 li{
-	clear:both;	
+
+#dialog .cover-1 {
+    float:left;
+    width:50%;
+}
+
+
+#dialog .cover-2 {
+    width:50%;
+    text-align:right;
+}
+
+#dialog .cover-2,
+#dialog .cover-2 img {
+    float:right;
 }
 
 .details{
-	display:block;
-	margin:0 0 0 108px;	
+    display:inline-block;
+    margin:0 5px;
 }
 
 .details h3 {
@@ -500,46 +516,35 @@ ol.txt_mash	 li{
 	font-style:bold;
 }
 
-
-/* =TRACK MASH LOADING DIALOG
---------------------------------------------------------------------------- */
-ol{
-	list-style: none;
-}
-.cover {
-	float:left;
-}
-ol.txt_mash	 li{
-	clear:both;	
+#dialog label {
+    font-size:2em;
 }
 
-.details{
-	display:block;
-	margin:0 0 0 108px;	
+#dialog input[type=text] {
+    border:1px solid #E84F60;
+    font-size:2em;
 }
 
-.details h3 {
-	font-size:2em;
+#dialog input[type=text]:focus {
+    border:1px solid #F7B448;
 }
 
-.details p {
-	font-size:1.7em;
+#dialog button {
+    border:1px solid #E84F60;
+    background:#E84F60;
+    color:#fff;
+    font-size:2em;
+    font-weight:bold;
 }
 
-.plus {
-	text-align:center;
-	font-size:3em;
-	font-style:bold;
+#dialog button:hover {
+    border:1px solid #F7B448;
+    background:#F7B448;
 }
 
-.equals {
-	text-align:center;
-	font-size:3em;
-	font-style:bold;
+.loading {
+    display:none;
 }
-
-.loading {}
-
 
 
 
