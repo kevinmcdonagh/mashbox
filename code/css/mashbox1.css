@@ -97,10 +97,11 @@ button {
     box-shadow: rgba(0,0,0,.3) 0 0 10px;
 }
 
-#player div {
+#player > div {
     display:inline-block;
     vertical-align:top;
     position:relative;
+    width:296px;
 }
 
 #player li {
@@ -111,6 +112,30 @@ button {
     overflow:hidden;
 }
 
+#player #covers {
+    float:left;
+    position:relative;
+}
+
+#player #covers img {
+    width:44px;
+    height:44px;
+    opacity:.9;
+}
+
+#player #covers + ul {
+    float:left;
+    margin:0 0 0 37px;
+    width:215px;
+}
+
+#player #covers img:last-child {
+    position:absolute;
+    margin:20px -20px 0 0;
+    top:0;
+    right:0;
+}
+
 #player li span {
     overflow: hidden;
     text-overflow: ellipsis;
@@ -119,9 +144,12 @@ button {
     float:left;
 }
 
-#player li img {
-    float:left;
-    margin:3px 5px 0 0;
+#player li span span {
+    overflow: visible;
+    text-overflow: none;
+    white-space: normal;
+    width:auto;
+    float:none;
 }
 
 #player h2 {

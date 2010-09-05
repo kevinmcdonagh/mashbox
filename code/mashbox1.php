@@ -1,4 +1,8 @@
-<!DOCTYPE HTML>
+<?php
+/*  LAST FM API
+    Your API Key is 3c71d615bf24a4a761091967791f9204
+    Your secret is 314d7e629aa63c8737f6b6aaa258fb7a */
+?><!DOCTYPE HTML>
 <html>
 <head>
     <meta charset="utf-8">
@@ -13,10 +17,14 @@
         <div id="player">
             <div><a href="http://soundcloud.com/matas/hobnotropic" class="sc-player">Play</a></div>
             <div>
-                <h2><img src="http://dummyimage.com/32x32/000/fff&amp;text=cover"></h2>
+                <h2></h2>
+                <div id="covers">
+                    <img src="http://dummyimage.com/16x16/000/fff&amp;text=cover" id="cover1">
+                    <img src="http://dummyimage.com/16x16/000/fff&amp;text=cover" id="cover2">
+                </div>
                 <ul>
-                    <li><img src="http://dummyimage.com/16x16/000/fff&amp;text=cover"> <span>Nikka Costa - Ching Ching Ching</span></li>
-                    <li><img src="http://dummyimage.com/16x16/000/fff&amp;text=cover"> <span>K'NAAN - Wavin' Flag</span></li>
+                    <li><span><span id="artist1">Nikka Costa</span> - <span id="title1">Ching Ching Ching</span></span></li>
+                    <li><span><span id="artist2">Foo Fighters</span> - <span id="title2">My Hero</span></span></li>
                 </ul>
             </div>
         </div>

@@ -1,6 +1,8 @@
 jQuery(document).ready(function(){
     setSCTitle();
     handleList();
+    lastFmGetCover(1);
+    lastFmGetCover(2);
 });
 
 function setSCTitle() {
@@ -31,6 +33,23 @@ function handleList() {
 
 }
 
+var lastFmGetCover = function(nb) {
+    var artist = jQuery('#artist'+nb).text();
+    var title  = jQuery('#title'+nb).text();
+    var data = 'method=track.getinfo&api_key=3c71d615bf24a4a761091967791f9204&artist='+artist+'&track='+title;
+    data = data.replace(' ', '%20');
+    var url  = 'proxy.php';
+    jQuery.ajax({
+        type:'POST',
+        url:url,
+        data:data,
+        success:function(xml){
+            var cover = jQuery(xml).find('image[size="small"]').text();
+            jQuery('#cover'+nb)[0].src = cover;
+        }
+    });
+    
+}
 
 
 
