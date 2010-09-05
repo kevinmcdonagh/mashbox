@@ -1,6 +1,10 @@
 This is a munged-up version of the capsule example code from echonest-remix, ploughed together for London Music Hack Day 2010.  Copyright still belongs to EchoNest.
 
-To use, you will need the echonest-remix package, and a valid license key.  run:
+To use, you will need the echonest-remix package, and a valid license key.
+
+You will need to clobber action.py in the src/echonest directory before building.  As far as I can tell, this code should have been there all along- I need to have a chat to the EchoNest dudes tomorrow.
+
+Done all that? run:
 
 python file1.mp3 file2.mp3 --init=0 --trans=60
 
