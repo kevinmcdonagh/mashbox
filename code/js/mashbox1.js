@@ -16,19 +16,23 @@ function handleList() {
         e.preventDefault();
         jQuery("#files + div").slideToggle();
     });
-
+    
+    var chooseGenre = jQuery('#choose-genre');
+    
     jQuery('#genres a').bind('click',function(){
         var genre = this.className.split('-')[1];
         jQuery('#files-'+genre).removeClass('hidden');
         jQuery('#genres').slideUp();
-        jQuery('#choose-genre').html('<span></span><button>'+genre+'</button>');
+        chooseGenre.html('<span></span><button>'+genre+'</button>');
+        chooseGenre.addClass('active')
     });
     
     jQuery('#choose-genre button').live('click',function(){
         var genre = jQuery('#choose-genre').text();
         jQuery('#files-'+genre).addClass('hidden');
         jQuery('#genres').slideDown();
-        jQuery('#choose-genre').html('Choose a genre !');
+        chooseGenre.html('Choose a genre !');
+        chooseGenre.removeClass('active')
     });
 
 }
