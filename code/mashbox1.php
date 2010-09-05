@@ -23,8 +23,8 @@
             <div>
                 <h2></h2>
                 <div id="covers">
-                    <img src="http://dummyimage.com/16x16/000/fff&amp;text=cover" id="cover1">
-                    <img src="http://dummyimage.com/16x16/000/fff&amp;text=cover" id="cover2">
+                    <img src="img/spacer.gif" id="cover1">
+                    <img src="img/spacer.gif" id="cover2">
                 </div>
                 <ul>
                     <li><span><span id="artist1">Nikka Costa</span> - <span id="title1">Ching Ching Ching</span></span></li>
