@@ -7,6 +7,7 @@
 <head>
     <meta charset="utf-8">
     <title>Mash Box</title>
+    <link rel="stylesheet" href="css/jquery-ui/pepper-grinder/jquery-ui-1.8.4.custom.css" type="text/css">
     <link rel="stylesheet" href="css/mashbox1.css" type="text/css">
     <link href='http://fonts.googleapis.com/css?family=Molengo' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Reenie+Beanie' rel='stylesheet' type='text/css'>
@@ -41,28 +42,28 @@
                     <li><a class="genre-electro" href="#">Electro</a></li>
                 </ul>
                 <ul id="files-rap" class="genre hidden">
-                    <li><a class="rap1" href="#">Rap Track #1</a></li>
-                    <li><a class="rap2" href="#">Rap Track #2</a></li>
-                    <li><a class="rap3" href="#">Rap Track #3</a></li>
-                    <li><a class="rap4" href="#">Rap Track #4</a></li>
+                    <li><a class="rap1 chosen" href="#">Rap Track #1</a></li>
+                    <li><a class="rap2 chosen" href="#">Rap Track #2</a></li>
+                    <li><a class="rap3 chosen" href="#">Rap Track #3</a></li>
+                    <li><a class="rap4 chosen" href="#">Rap Track #4</a></li>
                 </ul>
                 <ul id="files-rock" class="genre hidden">
-                    <li><a class="rock1" href="#">Rock Track #1</a></li>
-                    <li><a class="rock2" href="#">Rock Track #2</a></li>
-                    <li><a class="rock3" href="#">Rock Track #3</a></li>
-                    <li><a class="rock4" href="#">Rock Track #4</a></li>
+                    <li><a class="rock1 chosen" href="#">Rock Track #1</a></li>
+                    <li><a class="rock2 chosen" href="#">Rock Track #2</a></li>
+                    <li><a class="rock3 chosen" href="#">Rock Track #3</a></li>
+                    <li><a class="rock4 chosen" href="#">Rock Track #4</a></li>
                 </ul>
                 <ul id="files-instrumental" class="genre hidden">
-                    <li><a class="instrumental1" href="#">Instrumental Track #1</a></li>
-                    <li><a class="instrumental2" href="#">Instrumental Track #2</a></li>
-                    <li><a class="instrumental3" href="#">Instrumental Track #3</a></li>
-                    <li><a class="instrumental4" href="#">Instrumental Track #4</a></li>
+                    <li><a class="instrumental1 chosen" href="#">Instrumental Track #1</a></li>
+                    <li><a class="instrumental2 chosen" href="#">Instrumental Track #2</a></li>
+                    <li><a class="instrumental3 chosen" href="#">Instrumental Track #3</a></li>
+                    <li><a class="instrumental4 chosen" href="#">Instrumental Track #4</a></li>
                 </ul>
                 <ul id="files-electro" class="genre hidden">
-                    <li><a class="electro1" href="#">Electro Track #1</a></li>
-                    <li><a class="electro2" href="#">Electro Track #2</a></li>
-                    <li><a class="electro3" href="#">Electro Track #3</a></li>
-                    <li><a class="electro4" href="#">Electro Track #4</a></li>
+                    <li><a class="electro1 chosen" href="#">Electro Track #1</a></li>
+                    <li><a class="electro2 chosen" href="#">Electro Track #2</a></li>
+                    <li><a class="electro3 chosen" href="#">Electro Track #3</a></li>
+                    <li><a class="electro4 chosen" href="#">Electro Track #4</a></li>
                 </ul>
             </div>
         </div>
@@ -79,7 +80,7 @@
 						$dbh = new PDO('sqlite:mashbox2.sqlite');
 						foreach($dbh->query('SELECT * FROM tracks') as $row){
 							echo ("<tr>\n");
-							echo ("<td><span>" . $row['title'] . "</span> <b>+</b> <span>" . $row['artist'] . "</span></td>\n");
+							echo ("<td><span><strong>" . $row['title'] . "</strong> by " . $row['artist'] . "</span></td>\n");
 							echo ("<td><span>". $row['addedby1'] . "</span> <b>&amp;</b> <span>". $row['addedby2'] . "</span></td>\n");		                        
 							echo ("<tr>\n");
 					  	}
@@ -89,9 +90,31 @@
             </table>
         </div>
     </div>
+	<div id="dialog" title="Making the Mash!">
+		<ol>
+			<li>Cover - Title - artist</li>
+			<li>+</li>			
+			<li>Cover - Title - artist!</li>
+			<li>=</li>
+			<li>Title - artist!</li>
+		</ol>
+		<p>Loading...</p>
+	</div>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
     <script type="text/javascript" src="js/soundcloud.player.api.js"></script>
     <script type="text/javascript" src="js/sc-player.js"></script>
     <script type="text/javascript" src="js/mashbox1.js"></script>
+	<script type="text/javascript">
+	$(function() {
+		$("#dialog").dialog({ 
+			autoOpen: false,
+			height: 240,
+			modal: true });
+
+		$(".chosen").click(function(){
+			$("#dialog").dialog('open');
+		});
+	});
+	</script>
 </body>
 </html>
