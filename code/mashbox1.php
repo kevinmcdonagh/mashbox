@@ -105,7 +105,7 @@
 					<span class="details"><h3>Title</h3><p>artist</p></span>
 				</div>
 			</li>
-			<li><span class="equals">=</span><span class="result">Title - artist!</span></li>
+			<li><span class="plus">= Title - artist!</span></li>
 		</ol>
 		<p class="loading">Loading...</p>
 	</div>
