@@ -1,10 +1,15 @@
 jQuery(document).ready(function(){
     setSCTitle();
     handleList();
-    lastFmGetCover('#artist1','#title1','#cover1');
-    lastFmGetCover('#artist2','#title2','#cover2');
+    lastFmGetCover(jQuery('#artist1'),jQuery('#title1'),jQuery('#cover1'));
+    lastFmGetCover(jQuery('#artist2'),jQuery('#title2'),jQuery('#cover2'));
     setSCTable();
 });
+
+function randomToN(maxVal,floatVal) {
+   var randVal = Math.random()*maxVal;
+   return typeof floatVal=='undefined'?Math.round(randVal):randVal.toFixed(floatVal);
+}
 
 function setSCTitle() {
     setTimeout(function(){
@@ -25,7 +30,20 @@ function setSCTable() {
             player.api_toggle();
             jQuery('.sc-play').click();
         },500);
+        
+        var artist = jQuery(this).find('.artist');
+        var artist2  = jQuery(this).find('.artist2');
+        var cover  = jQuery('.cover-1 .cover');
+        lastFmGetCover(artist,jQuery('#blah'),jQuery('#cover1'));
+        lastFmGetCover(artist2,jQuery('#blah'),jQuery('#cover2'));
+        jQuery('#artist1').text(artist.text());
+        jQuery('#title1').text('');
+        jQuery('#artist2').text(artist2.text());
+        jQuery('#title2').text('');
+        jQuery('h2').text(jQuery(this).find('strong').text())
+
     });
+
     jQuery('tbody tr a').bind('click',function(e){
         e.preventDefault();
     });
@@ -47,7 +65,23 @@ function handleList() {
         chooseGenre.addClass('active');
         jQuery('#files-'+genre+' a').bind('click',function(){
             
-            lastFmGetCover('#artist1','#title1','#cover1');
+            var artist = jQuery(this).children('.artist');
+            var title  = jQuery(this).children('.title');
+            var cover  = jQuery('.cover-1 .cover');
+            lastFmGetCover(artist,title,cover);
+            jQuery('.cover-1 h3').text(artist.text());
+            jQuery('.cover-1 p').text(title.text());
+
+            var nb = randomToN(jQuery('#files-'+genre+' a').length);
+            var second = jQuery(jQuery('#files-'+genre+' a')[nb]);
+
+            var artist2 = second.children('.artist');
+            var title2  = second.children('.title');
+            var cover2  = jQuery('.cover-2 .cover');
+            lastFmGetCover(artist2,title2,cover2);
+            jQuery('.cover-2 h3').text(artist2.text());
+            jQuery('.cover-2 p').text(title2.text());
+
             
         });
     });
@@ -63,9 +97,15 @@ function handleList() {
 }
 
 var lastFmGetCover = function(artist,title,coverimg) {
-    var artist = jQuery(artist).text();
-    var title  = jQuery(title).text();
-    var data = 'method=track.getinfo&api_key=3c71d615bf24a4a761091967791f9204&artist='+artist+'&track='+title;
+    var artist = artist.text();
+    var title  = title.text();
+    var data = 'method=track.getinfo&api_key=3c71d615bf24a4a761091967791f9204';
+    if (artist.length > 2) {
+        data += '&artist='+artist;
+    }
+    if (title.length > 2) {
+        data += '&track='+title;
+    }
     data = data.replace(' ', '%20');
     var url  = 'proxy.php';
     jQuery.ajax({
@@ -74,7 +114,8 @@ var lastFmGetCover = function(artist,title,coverimg) {
         data:data,
         success:function(xml){
             var cover = jQuery(xml).find('image[size="small"]').text();
-            jQuery(coverimg)[0].src = cover;
+            if (cover == '') cover = 'img/spacer.gif';
+            coverimg[0].src = cover;
         }
     });
     

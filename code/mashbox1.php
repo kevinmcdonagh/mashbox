@@ -33,7 +33,7 @@
             </div>
         </div>
         <div id="add-track">
-            <span id="files"><a href="#"><b>+</b> <span>Choose a track to the mash!</span></a></span>
+            <span id="files"><a href="#"><b>+</b> <span>Choose a track to add to the mash!</span></a></span>
             <div>
                 <h3 id="choose-genre">
                     Choose a genre !
@@ -104,7 +104,7 @@
 						foreach($dbh->query('SELECT * FROM mashes') as $row){
 							echo ("<tr>\n");
 							echo ("<td><span><a href=\"".$row['soundcloud_url']."\"<strong>" . $row['name'] . "</strong> by " . $row['artist'] . "</a></span></td>\n");
-							echo ("<td><span>". $row['original_artist'] . "</span> <b>&amp;</b> <span>". $row['random_mash_artist'] . "</span></td>\n");		                        
+							echo ("<td><span class='artist'>". $row['original_artist'] . "</span> <b>&amp;</b> <span class='artist2'>". $row['random_mash_artist'] . "</span></td>\n");
 							echo ("<tr>\n");
 					  	}
 					?>
@@ -116,14 +116,14 @@
 		<ol class="txt_mash">
 			<li class="cover-1">
 				<div class="trackItem">
-					<img class="cover" src="img/cover_1.jpg">
+					<img class="cover" src="img/spacer.gif">
 					<span class="details"><h3>Title</h3><p>artist</p></span>
 				</div>
 			</li>
 			<li class="cover-2">
 				<div class="trackItem">
 					<span class="details"><h3>Title</h3><p>artist</p></span>
-					<img class="cover" src="img/cover_2.jpg">
+					<img class="cover" src="img/spacer.gif">
 				</div>
 			</li>
 		</ol>
@@ -143,7 +143,7 @@
 	$(function() {
 		$("#dialog").dialog({ 
 			autoOpen: false,
-			height: 200,
+			height: 300,
 			width: 440,
 			modal: true });
 
@@ -155,5 +155,6 @@
 	<?php
 		$dbh = null;
 	?>
+	<input type="hidden" id="blah">
 </body>
 </html>
