@@ -4,6 +4,7 @@
     ADDTRACK
     TABLE
 	FILELIST
+	TRACK MASH LOADING DIALOG
 */
 
 /* =RESET
@@ -397,7 +398,25 @@ table tr:nth-child(2n) {
     cursor:pointer;
 }
 
+	
 
+/* =TRACK MASH LOADING DIALOG
+--------------------------------------------------------------------------- */
+ol{
+	list-style: none;
+}
+.cover {
+	float:left;
+}
+ol.txt_mash	 li{
+clear:both;	
+}
+.artist1 {}
+.artist2 {}
+.plus {}
+.equals {}
+.result {}
+.loading {}
 
 
 
