@@ -4,7 +4,12 @@
     ADDTRACK
     TABLE
 	FILELIST
-	TRACK MASH LOADING DIALOG
+	DIALOG
+	
+	COLORS
+        FDB7BE
+        F3A7B0
+	
 */
 
 /* =RESET
@@ -45,14 +50,14 @@ h1 {
     font-size:4.5em;
     font-family: 'Reenie Beanie', arial, serif;
     font-style:italic;
+    color:#E84F60;
+    text-shadow:#F7B448 1px 1px 1px;
 }
 
 button {
     background:none;
     border:0;
 }
-
-
 
 
 /* =PLAYER
@@ -262,6 +267,7 @@ button {
 #add-track #files {
     position:relative;
     z-index:5;
+    padding-bottom:2px;
 }
 
 #add-track > div {
@@ -276,12 +282,6 @@ button {
     padding:30px 10px 10px 10px;
     font-size:1.2em;
 }
-
-
-/*
-FDB7BE
-F3A7B0
-*/
 
 #add-track #files:hover {
     background: -webkit-gradient(
@@ -317,8 +317,7 @@ F3A7B0
 }
 
 #add-track > span * {
-    display:inline-block;
-    vertical-align:bottom;
+    float:left;
 }
 
 #add-track b {
@@ -330,6 +329,7 @@ F3A7B0
 
 #add-track span span {
     font-size:1.3em;
+    padding:8px 0 0 0;
 }
 
 #add-track h3 {
@@ -346,7 +346,16 @@ F3A7B0
     display:block;
 }
 
-#add-track #genres li a:hover {
+#add-track .genre li a {
+    background:#eee;
+    font-size:1.2em;
+    padding:2px 5px;
+    border-top:1px solid #fff;
+    display:block;
+}
+
+#add-track #genres li a:hover,
+#add-track .genre li a:hover {
     background:rgba(247,180,72,.5);
 }
 
@@ -444,7 +453,53 @@ table tr:nth-child(2n) {
     cursor:pointer;
 }
 
-	
+<<<<<<< HEAD
+#choose-genre.active:hover span {
+    border-color: transparent #F3A7B0 transparent transparent !important;
+}
+
+#choose-genre.active:hover button {
+    background:#F3A7B0;
+}
+
+
+/* =DIALOG
+--------------------------------------------------------------------------- */
+ol{
+	list-style: none;
+}
+.cover {
+	float:left;
+}
+ol.txt_mash	 li{
+	clear:both;	
+}
+
+.details{
+	display:block;
+	margin:0 0 0 108px;	
+}
+
+.details h3 {
+	font-size:2em;
+}
+
+.details p {
+	font-size:1.7em;
+}
+
+.plus {
+	text-align:center;
+	font-size:3em;
+	font-style:bold;
+}
+
+.equals {
+	text-align:center;
+	font-size:3em;
+	font-style:bold;
+}
+
 
 /* =TRACK MASH LOADING DIALOG
 --------------------------------------------------------------------------- */
