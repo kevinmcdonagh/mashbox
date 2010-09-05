@@ -3,12 +3,33 @@ jQuery(document).ready(function(){
     handleList();
     lastFmGetCover(1);
     lastFmGetCover(2);
+    setSCTable();
 });
 
 function setSCTitle() {
     setTimeout(function(){
         jQuery('h2').append(' '+jQuery('.sc-info h3').html());
     },2500);
+}
+
+function setSCTable() {
+    jQuery('tbody tr').bind('click',function(e){
+        e.preventDefault();
+        var player = soundcloud.getPlayer('scPlayerEngine');
+        player.api_stop();
+        var link = jQuery(this).find('a')[0].href;
+        jQuery('#player div:first-child').html('<a href="'+link+'" id="sc-play-me"></a>');
+        jQuery('#sc-play-me').scPlayer();
+        var player = soundcloud.getPlayer('scPlayerEngine');
+        setTimeout(function(){
+            console.log(player)
+            player.api_toggle();
+            jQuery('.sc-play').click();
+        },500);
+    });
+    jQuery('tbody tr a').bind('click',function(e){
+        e.preventDefault();
+    });
 }
 
 function handleList() {
@@ -54,11 +75,6 @@ var lastFmGetCover = function(nb) {
     });
     
 }
-
-// console.log(soundcloud)
-// soundcloud.addEventListener('onPlayerReady', function(){
-//     alert('ok')
-// });
 
 
 

@@ -13,6 +13,9 @@
     <link href='http://fonts.googleapis.com/css?family=Reenie+Beanie' rel='stylesheet' type='text/css'>
 </head>
 <body>
+    <div class="your-container-class">
+        
+    </div>
     <div id="content">
         <h1>Mash Box</h1>
         <div id="player">
@@ -80,7 +83,7 @@
 						$dbh = new PDO('sqlite:mashbox2.sqlite');
 						foreach($dbh->query('SELECT * FROM mashes') as $row){
 							echo ("<tr>\n");
-							echo ("<td><span><strong>" . $row['name'] . "</strong> by " . $row['artist'] . "</span></td>\n");
+							echo ("<td><span><a href=\"".$row['soundcloud_url']."\"<strong>" . $row['name'] . "</strong> by " . $row['artist'] . "</a></span></td>\n");
 							echo ("<td><span>". $row['original_artist'] . "</span> <b>&amp;</b> <span>". $row['random_mash_artist'] . "</span></td>\n");		                        
 							echo ("<tr>\n");
 					  	}
