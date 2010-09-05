@@ -1,8 +1,8 @@
 jQuery(document).ready(function(){
     setSCTitle();
     handleList();
-    lastFmGetCover(1);
-    lastFmGetCover(2);
+    lastFmGetCover('#artist1','#title1','#cover1');
+    lastFmGetCover('#artist2','#title2','#cover2');
     setSCTable();
 });
 
@@ -22,7 +22,6 @@ function setSCTable() {
         jQuery('#sc-play-me').scPlayer();
         var player = soundcloud.getPlayer('scPlayerEngine');
         setTimeout(function(){
-            console.log(player)
             player.api_toggle();
             jQuery('.sc-play').click();
         },500);
@@ -45,7 +44,12 @@ function handleList() {
         jQuery('#files-'+genre).removeClass('hidden');
         jQuery('#genres').slideUp();
         chooseGenre.html('<span></span><button>'+genre+'</button>');
-        chooseGenre.addClass('active')
+        chooseGenre.addClass('active');
+        jQuery('#files-'+genre+' a').bind('click',function(){
+            
+            lastFmGetCover('#artist1','#title1','#cover1');
+            
+        });
     });
     
     jQuery('#choose-genre button').live('click',function(){
@@ -58,9 +62,9 @@ function handleList() {
 
 }
 
-var lastFmGetCover = function(nb) {
-    var artist = jQuery('#artist'+nb).text();
-    var title  = jQuery('#title'+nb).text();
+var lastFmGetCover = function(artist,title,coverimg) {
+    var artist = jQuery(artist).text();
+    var title  = jQuery(title).text();
     var data = 'method=track.getinfo&api_key=3c71d615bf24a4a761091967791f9204&artist='+artist+'&track='+title;
     data = data.replace(' ', '%20');
     var url  = 'proxy.php';
@@ -70,7 +74,7 @@ var lastFmGetCover = function(nb) {
         data:data,
         success:function(xml){
             var cover = jQuery(xml).find('image[size="small"]').text();
-            jQuery('#cover'+nb)[0].src = cover;
+            jQuery(coverimg)[0].src = cover;
         }
     });
     

@@ -13,9 +13,9 @@
     <link href='http://fonts.googleapis.com/css?family=Reenie+Beanie' rel='stylesheet' type='text/css'>
 </head>
 <body>
-    <div class="your-container-class">
-        
-    </div>
+	<?php
+		$dbh = new PDO('sqlite:mashbox2.sqlite');
+	?>
     <div id="content">
         <h1>Mash Box</h1>
         <div id="player">
@@ -23,8 +23,8 @@
             <div>
                 <h2></h2>
                 <div id="covers">
-                    <img src="http://dummyimage.com/16x16/000/fff&amp;text=cover" id="cover1">
-                    <img src="http://dummyimage.com/16x16/000/fff&amp;text=cover" id="cover2">
+                    <img src="img/spacer.gif" id="cover1">
+                    <img src="img/spacer.gif" id="cover2">
                 </div>
                 <ul>
                     <li><span><span id="artist1">Nikka Costa</span> - <span id="title1">Ching Ching Ching</span></span></li>
@@ -33,40 +33,61 @@
             </div>
         </div>
         <div id="add-track">
-            <span id="files"><a href="#"><b>+</b> <span>Add your own track to the mash!</span></a></span>
+            <span id="files"><a href="#"><b>+</b> <span>Choose a track to the mash!</span></a></span>
             <div>
                 <h3 id="choose-genre">
                     Choose a genre !
                 </h3>
                 <ul id="genres">
-                    <li><a class="genre-rock" href="#">Rock</a></li>
+                    <li><a class="genre-pop" href="#">Pop</a></li>
                     <li><a class="genre-rap" href="#">Rap</a></li>
                     <li><a class="genre-instrumental" href="#">Instrumental</a></li>
-                    <li><a class="genre-electro" href="#">Electro</a></li>
+                    <li><a class="genre-electro" href="#">Electronic</a></li>
+                    <li><a class="genre-dance" href="#">Dance</a></li>
+                    <li><a class="genre-soul" href="#">Soul</a></li>
+                    <li><a class="genre-indie" href="#">Indie</a></li>
+                </ul>
+                <ul id="files-pop" class="genre hidden">
+				<?php foreach($dbh->query("SELECT * FROM tracks WHERE genre = 'pop' ") as $row){
+						echo ("<li><a class='chosen' href='#'> <span class='artist'>" . $row['artist']. "</span> - <span class='title'>" . $row['title']. "</span></a></li>\n");
+					}
+				?>
                 </ul>
                 <ul id="files-rap" class="genre hidden">
-                    <li><a class="rap1 chosen" href="#">Rap Track #1</a></li>
-                    <li><a class="rap2 chosen" href="#">Rap Track #2</a></li>
-                    <li><a class="rap3 chosen" href="#">Rap Track #3</a></li>
-                    <li><a class="rap4 chosen" href="#">Rap Track #4</a></li>
-                </ul>
-                <ul id="files-rock" class="genre hidden">
-                    <li><a class="rock1 chosen" href="#">Rock Track #1</a></li>
-                    <li><a class="rock2 chosen" href="#">Rock Track #2</a></li>
-                    <li><a class="rock3 chosen" href="#">Rock Track #3</a></li>
-                    <li><a class="rock4 chosen" href="#">Rock Track #4</a></li>
+					<?php foreach($dbh->query("SELECT * FROM tracks WHERE genre = 'rap' ") as $row){
+							echo ("<li><a class='chosen' href='#'>" . $row['title']. "</a></li>\n");
+						}
+					?>	
                 </ul>
                 <ul id="files-instrumental" class="genre hidden">
-                    <li><a class="instrumental1 chosen" href="#">Instrumental Track #1</a></li>
-                    <li><a class="instrumental2 chosen" href="#">Instrumental Track #2</a></li>
-                    <li><a class="instrumental3 chosen" href="#">Instrumental Track #3</a></li>
-                    <li><a class="instrumental4 chosen" href="#">Instrumental Track #4</a></li>
+					<?php foreach($dbh->query("SELECT * FROM tracks WHERE genre = 'instrumental' ") as $row){
+							echo ("<li><a class='chosen' href='#'>" . $row['title']. "</a></li>\n");
+						}
+					?>
                 </ul>
                 <ul id="files-electro" class="genre hidden">
-                    <li><a class="electro1 chosen" href="#">Electro Track #1</a></li>
-                    <li><a class="electro2 chosen" href="#">Electro Track #2</a></li>
-                    <li><a class="electro3 chosen" href="#">Electro Track #3</a></li>
-                    <li><a class="electro4 chosen" href="#">Electro Track #4</a></li>
+					<?php foreach($dbh->query("SELECT * FROM tracks WHERE genre = 'electronic' ") as $row){
+							echo ("<li><a class='chosen' href='#'>" . $row['title']. "</a></li>\n");
+						}
+					?>
+                </ul>
+                <ul id="files-dance" class="genre hidden">
+					<?php foreach($dbh->query("SELECT * FROM tracks WHERE genre = 'dance' ") as $row){
+							echo ("<li><a class='chosen' href='#'>" . $row['title']. "</a></li>\n");
+						}
+					?>
+                </ul>
+                <ul id="files-soul" class="genre hidden">
+					<?php foreach($dbh->query("SELECT * FROM tracks WHERE genre = 'soul' ") as $row){
+							echo ("<li><a class='chosen' href='#'>" . $row['title']. "</a></li>\n");
+						}
+					?>
+                </ul>
+                <ul id="files-indie" class="genre hidden">
+					<?php foreach($dbh->query("SELECT * FROM tracks WHERE genre = 'indie' ") as $row){
+							echo ("<li><a class='chosen' href='#'>" . $row['title']. "</a></li>\n");
+						}
+					?>
                 </ul>
             </div>
         </div>
@@ -80,14 +101,12 @@
                 </thead>
                 <tbody>
 					<?php
-						$dbh = new PDO('sqlite:mashbox2.sqlite');
 						foreach($dbh->query('SELECT * FROM mashes') as $row){
 							echo ("<tr>\n");
 							echo ("<td><span><a href=\"".$row['soundcloud_url']."\"<strong>" . $row['name'] . "</strong> by " . $row['artist'] . "</a></span></td>\n");
 							echo ("<td><span>". $row['original_artist'] . "</span> <b>&amp;</b> <span>". $row['random_mash_artist'] . "</span></td>\n");		                        
 							echo ("<tr>\n");
 					  	}
-						$dbh = null;
 					?>
                 </tbody>
             </table>
@@ -137,5 +156,8 @@
 		});
 	});
 	</script>
+	<?php
+		$dbh = null;
+	?>
 </body>
 </html>

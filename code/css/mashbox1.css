@@ -352,6 +352,10 @@ button {
     padding:2px 5px;
     border-top:1px solid #fff;
     display:block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width:370px;
 }
 
 #add-track #genres li a:hover,
