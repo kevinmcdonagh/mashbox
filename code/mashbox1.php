@@ -33,7 +33,7 @@
             </div>
         </div>
         <div id="add-track">
-            <span id="files"><a href="#"><b>+</b> <span>Add your own track to the mash!</span></a></span>
+            <span id="files"><a href="#"><b>+</b> <span>Choose a track to the mash!</span></a></span>
             <div>
                 <h3 id="choose-genre">
                     Choose a genre !
@@ -49,7 +49,7 @@
                 </ul>
                 <ul id="files-pop" class="genre hidden">
 				<?php foreach($dbh->query("SELECT * FROM tracks WHERE genre = 'pop' ") as $row){
-						echo ("<li><a class='chosen' href='#'>" . $row['title']. "</a></li>\n");
+						echo ("<li><a class='chosen' href='#'> <span class='artist'>" . $row['artist']. "</span> - <span class='title'>" . $row['title']. "</span></a></li>\n");
 					}
 				?>
                 </ul>
