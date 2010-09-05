@@ -409,13 +409,34 @@ ol{
 	float:left;
 }
 ol.txt_mash	 li{
-clear:both;	
+	clear:both;	
 }
-.artist1 {}
-.artist2 {}
-.plus {}
-.equals {}
-.result {}
+
+.details{
+	display:block;
+	margin:0 0 0 108px;	
+}
+
+.details h3 {
+	font-size:2em;
+}
+
+.details p {
+	font-size:1.7em;
+}
+
+.plus {
+	text-align:center;
+	font-size:3em;
+	font-style:bold;
+}
+
+.equals {
+	text-align:center;
+	font-size:3em;
+	font-style:bold;
+}
+
 .loading {}
 
 
