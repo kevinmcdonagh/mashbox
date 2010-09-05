@@ -113,11 +113,13 @@
     <script type="text/javascript" src="js/soundcloud.player.api.js"></script>
     <script type="text/javascript" src="js/sc-player.js"></script>
     <script type="text/javascript" src="js/mashbox1.js"></script>
+	<script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
+	<script type="text/javascript" src="js/jquery-ui-1.8.4.custom.min.js"></script>
 	<script type="text/javascript">
 	$(function() {
 		$("#dialog").dialog({ 
 			autoOpen: false,
-			height: 340,
+			height: 400,
 			width: 440,
 			modal: true });
 
