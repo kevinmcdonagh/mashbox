@@ -67,18 +67,16 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td><span>Wu Tang</span> <b>+</b> <span>Fisher Band</span></td>
-                        <td><span>Kevin</span> <b>&amp;</b> <span>Yves</span></td>
-                    </tr>
-                    <tr>
-                        <td><span>Wu Tang</span> <b>+</b> <span>Fisher Band</span></td>
-                        <td><span>Kevin</span> <b>&amp;</b> <span>Yves</span></td>
-                    </tr>
-                    <tr>
-                        <td><span>Wu Tang</span> <b>+</b> <span>Fisher Band</span></td>
-                        <td><span>Kevin</span> <b>&amp;</b> <span>Yves</span></td>
-                    </tr>
+					<?php
+						$dbh = new PDO('sqlite:mashbox2.sqlite');
+						foreach($dbh->query('SELECT * FROM tracks') as $row){
+							echo ("<tr>\n");
+							echo ("<td><span>" . $row['title'] . "</span> <b>+</b> <span>" . $row['artist'] . "</span></td>\n");
+							echo ("<td><span>". $row['addedby1'] . "</span> <b>&amp;</b> <span>". $row['addedby2'] . "</span></td>\n");		                        
+							echo ("<tr>\n");
+					  	}
+						$dbh = null;
+					?>
                 </tbody>
             </table>
         </div>
