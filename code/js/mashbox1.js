@@ -99,7 +99,14 @@ function handleList() {
 var lastFmGetCover = function(artist,title,coverimg) {
     var artist = artist.text();
     var title  = title.text();
-    var data = 'method=track.getinfo&api_key=3c71d615bf24a4a761091967791f9204';
+    var data = '';
+    if (artist.length > 2 && title.length > 2) {
+        data = 'method=track.getinfo';
+    }
+    else if (artist.length > 2 && title.length < 2) {
+        data = 'method=artist.getinfo';
+    }
+    data += '&api_key=3c71d615bf24a4a761091967791f9204';
     if (artist.length > 2) {
         data += '&artist='+artist;
     }
@@ -115,6 +122,9 @@ var lastFmGetCover = function(artist,title,coverimg) {
         success:function(xml){
             var cover = jQuery(xml).find('image[size="small"]').text();
             if (cover == '') cover = 'img/spacer.gif';
+            else {
+                cover = 'http://'+cover.split('http://')[1]
+            }
             coverimg[0].src = cover;
         }
     });
